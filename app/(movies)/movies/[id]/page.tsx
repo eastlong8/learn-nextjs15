@@ -3,6 +3,7 @@ export default async function MovieDetail(
     Readonly<{
       params: { id: string },
     }>) {
-  const { id } = await params;
+  const resolvedParams = await Promise.resolve(params);
+  const { id } = resolvedParams;
   return <h1>Movie {id}</h1>
 }
